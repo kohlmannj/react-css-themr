@@ -1,8 +1,8 @@
 {
-  "name": "react-css-themr",
-  "description": "React CSS Themr",
-  "homepage": "https://github.com/javivelasco/react-css-themr#readme",
-  "version": "2.1.2",
+  "name": "@kohlmannj/react-jss-themr",
+  "description": "React JSS Themr",
+  "homepage": "https://github.com/kohlmannj/react-jss-themr#readme",
+  "version": "2.2.0-beta.1",
   "main": "./lib",
   "author": {
     "email": "javier.velasco86@gmail.com",
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/javivelasco/react-css-themr.git"
+    "url": "git+https://github.com/kohlmannj/react-jss-themr.git"
   },
   "bugs": {
-    "url": "https://github.com/javivelasco/react-css-themr/issues"
+    "url": "https://github.com/kohlmannj/react-jss-themr/issues"
   },
   "keywords": [
     "css-modules",
@@ -64,6 +64,8 @@
   },
   "license": "MIT",
   "peerDependencies": {
+    "@kohlmannj/aphrodite-jss": "^1.2.0-beta.1",
+    "@kohlmannj/jss": "^7.2.0",
     "react": "^0.14.0 || ^15.0.0-0"
   },
   "typings": "./index.d.ts"

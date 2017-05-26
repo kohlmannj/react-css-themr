@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import hoistNonReactStatics from 'hoist-non-react-statics'
 import invariant from 'invariant'
+import { StyleSheet } from '@kohlmannj/aphrodite-jss'
 
 /**
  * @typedef {Object.<string, TReactCSSThemrTheme>} TReactCSSThemrTheme
@@ -155,6 +156,36 @@ export default (componentName, localTheme, options = {}) => (ThemedComponent) =>
   return hoistNonReactStatics(Themed, ThemedComponent)
 }
 
+function renderJssRules(rules) {
+  let localRules = rules
+
+  if (typeof localRules === 'object' && localRules !== null) {
+    const { cssModules, jssRules } = Object.keys(localRules).reduce(
+      (mapping, prop) => {
+        const updatedMapping = mapping
+        const value = localRules[prop]
+
+        if (typeof value === 'object' && value !== null) {
+          updatedMapping.jssRules[prop] = value
+        } else {
+          updatedMapping.cssModules[prop] = value
+        }
+
+        return updatedMapping
+      },
+      { cssModules: {}, jssRules: {} },
+    )
+
+    // Render the JSS
+    localRules = {
+      ...cssModules,
+      ...StyleSheet.render(jssRules)
+    }
+  }
+
+  return localRules
+}
+
 /**
  * Merges passed themes by concatenating string keys and processing nested themes
  *
@@ -162,7 +193,7 @@ export default (componentName, localTheme, options = {}) => (ThemedComponent) =>
  * @returns {TReactCSSThemrTheme} - Resulting theme
  */
 export function themeable(...themes) {
-  return themes.reduce((acc, theme) => merge(acc, theme), {})
+  return themes.reduce((acc, theme) => merge(acc, renderJssRules(theme)), {})
 }
 
 /**
