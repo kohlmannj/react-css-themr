@@ -176,8 +176,13 @@ function renderJssRules(rules) {
       { cssModules: {}, jssRules: {} },
     )
 
-    // Render the JSS
-    localRules = merge(cssModules, StyleSheet.render(jssRules))
+    if (Object.keys(jssRules).length > 0) {
+      // Render and merge the JSS rules (if there are JSS rules)
+      localRules = merge(cssModules, StyleSheet.render(jssRules))
+    } else {
+      // The CSS Modules rules are the only rules
+      localRules = cssModules
+    }
   }
 
   return localRules
