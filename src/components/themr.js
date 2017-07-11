@@ -177,10 +177,7 @@ function renderJssRules(rules) {
     )
 
     // Render the JSS
-    localRules = {
-      ...cssModules,
-      ...StyleSheet.render(jssRules)
-    }
+    localRules = merge(cssModules, StyleSheet.render(jssRules))
   }
 
   return localRules
