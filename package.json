@@ -2,7 +2,7 @@
   "name": "@kohlmannj/react-jss-themr",
   "description": "React JSS Themr",
   "homepage": "https://github.com/kohlmannj/react-jss-themr#readme",
-  "version": "3.0.0",
+  "version": "3.1.0-alpha.0",
   "main": "./lib",
   "author": {
     "email": "javier.velasco86@gmail.com",
