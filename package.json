@@ -29,6 +29,7 @@
     "recompose": "^0.26.0"
   },
   "devDependencies": {
+    "@kohlmannj/aphrodite-jss": "^2.1.0-beta.0",
     "@types/react": "^15.0.24",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
