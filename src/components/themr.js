@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import hoistNonReactStatics from 'hoist-non-react-statics'
 import invariant from 'invariant'
 import { StyleSheet } from '@kohlmannj/aphrodite-jss'
+import wrapDisplayName from 'recompose/wrapDisplayName'
 
 /**
  * @typedef {Object.<string, TReactCSSThemrTheme>} TReactCSSThemrTheme
@@ -55,7 +56,7 @@ export default (componentName, localTheme, options = {}) => (ThemedComponent) =>
    * @property {{wrappedInstance: *}} refs
    */
   class Themed extends Component {
-    static displayName = `Themed${ThemedComponent.name}`;
+    static displayName = wrapDisplayName(ThemedComponent, 'Themed')
 
     static contextTypes = {
       themr: PropTypes.object
