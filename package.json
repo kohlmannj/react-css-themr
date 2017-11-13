@@ -45,6 +45,8 @@
     "expect": "^1.18.0",
     "fbjs": "^0.8.12",
     "jsdom": "^9.8.3",
+    "jss": "^9.2.0",
+    "jss-preset-default": "^4.0.1",
     "mocha": "^3.3.0",
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
